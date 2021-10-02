@@ -1,0 +1,289 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<style>
+		/* Monitor- George */
+
+		body {
+		position: relative;
+		/*width: 1080px;
+		height: 700px;*/
+
+		background: #FFF4D0;
+	}
+	.title{
+				/* Dash Board */
+
+		position: absolute;
+		width: 110px;
+		height: 28px;
+		left: 50px;
+		top: 23px;
+
+		font-family: fantasy;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		line-height: 28px;
+		/* identical to box height */
+
+
+		color: #0E3707;
+
+	}
+
+	/* Group 3 */
+	.dashboard-icon{
+		position: absolute;
+		left: 1%;
+		right: 96%;
+		top: 3%;
+		bottom: 93.29%;
+
+		font-size: 1.8em;
+		color: #35a0f2;
+	}
+	.figureF{
+
+		/* PROFIL */
+		position: absolute;
+		width: 300px;
+		height: 119px;
+		left: 1100px;
+		top: 17px;
+	}
+
+	.frameF{
+		/* Frame 1 */
+
+
+		position: absolute;
+		left: 0%;
+		right: 0%;
+		top: 0%;
+		bottom: 47.06%;
+
+		background: #FFFFFF;
+		border: 2px solid #000000;
+		border-radius: 50px;
+		}
+	.figureLayout{
+		/* Auto Layout */
+
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 0px;
+
+		position: absolute;
+		width: 267.21px;
+		height: 50px;
+		left: 19px;
+		top: 6px;
+
+		}
+
+		.imgL{
+		position: static;
+		width: 55.21px;
+		height: 50px;
+		left: 0px;
+		top: 0px;
+		mix-blend-mode: normal;
+
+		/* Inside Auto Layout */
+
+		flex: none;
+		order: 0;
+		flex-grow: 0;
+		margin: 0px 0px;
+	}
+
+	.figureN{
+			/* GEORGE */
+
+
+		position: static;
+		width: 100px;
+		height: 44px;
+		left: 60px;
+		top: 3px;
+
+		font-family: Secular One;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		line-height: 44px;
+		/* identical to box height */
+
+
+		color: #000000;
+
+
+		/* Inside Auto Layout */
+
+		flex: none;
+		order: 1;
+		flex-grow: 0;
+		margin: 0px 22px;
+	}
+	.button{
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0px;
+
+		position: static;
+		width: 19px;
+		height: 25px;
+		left: 100px;
+		top: 12.5px;
+		font-size: 1.8em;
+
+		flex: none;
+		order: 2;
+		flex-grow: 0;
+		margin: 0px 25px;
+	}
+	.indiF{
+		/* Table / Indicator table */
+
+
+		/* Auto Layout */
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		/*first padding:  height distance; sec:  width dis*/
+		padding: 20px 13px;
+
+		position: absolute;
+		width: 300px;
+		height: 350px;
+		left: 1100px;
+		top: calc(50% - 305px/2 - 50px);
+
+		background: #FFFFFF;
+		border: 2px solid #000000;
+		box-sizing: border-box;
+		border-radius: 10px;
+	}
+	.td1font{
+		font-family: Open Sans;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		line-height: 20px;
+		width: 130px;
+
+		/* identical to box height, or 143% */
+
+		letter-spacing: 0.44px;
+
+			}
+	.td2font{
+		font-family: Open Sans;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 20px;
+		/* identical to box height, or 143% */
+
+		letter-spacing: 0.44px;
+
+		color: #9292C1;
+
+	}
+	.upColor{
+		font-size: 1em;
+		color: green;
+		
+	}
+	.downColor{
+		font-size: 1em;
+		color: red;
+		
+	}
+
+	</style>
+</head>
+
+<body>
+	<i class="bi bi-speedometer dashboard-icon"></i>
+	<p class = "title">Dash Board</p>
+	<!-- PROFILE-->
+	<div class = "figureF">
+		<div class ="frameF" >
+			<div class = "figureLayout">
+				<img src="/Users/dazzydan/Desktop/avatar/g.png" class = "imgL">
+				<i class = "figureN">GEORGE</i>
+				<i class="bi bi-list button " role="button"></i>
+
+			</div>
+		</div>
+	</div>
+	<!-- Indicator table -->
+	<!-- frame -->
+	<div class = "indiF">
+		<table class="table table-borderless">
+  			<tr>
+  				<td class = "td1font">User</td>
+  				<td class = "td2font">220</td>
+  				<td><i class="bi bi-caret-up-fill upColor"></i></td>
+  			</tr>
+  			<tr>
+  				<td class = "td1font">DAU/MAU</td>
+  				<td class = "td2font"> 0.6</td>
+  				<td><i class="bi bi-caret-up-fill upColor"></i></td>
+  			</tr>
+  			<tr>
+  				<td class = "td1font">DNU</td>
+  				<td class = "td2font">12</td>
+  				<td><i class="bi bi-caret-up-fill upColor"></i></td>
+  			</tr>
+  			<tr>
+  				<td class = "td1font">A-factor</td>
+  				<td class = "td2font">6</td>
+  				<td><i class="bi bi-caret-up-fill upColor"></i></td>
+  			</tr>
+  			<tr>
+  				<td class = "td1font">PCU</td>
+  				<td class = "td2font">68</td>
+  				<td><i class="bi bi-caret-down-fill downColor"></i></td>
+  			</tr>
+  			<tr>
+  				<td class = "td1font">ACU</td>
+  				<td class = "td2font">73</td>
+  				<td><i class="bi bi-caret-down-fill downColor"></i></td>
+  			</tr>
+  			<tr>
+  				<td class = "td1font">AOT</td>
+  				<td class = "td2font">35</td>
+  				<td><i class="bi bi-caret-down-fill downColor"></i></td>
+  			</tr>
+  			<tr>
+  				<td class = "td1font">Wellbeing</td>
+  				<td class = "td2font">1.8</td>
+  				<td><i class="bi bi-caret-up-fill upColor"></i></td>
+  			</tr>
+		</table>
+	</div>
+
+
+
+</body>
+<script>
+
+	
+
+
+</script>
+</html>
