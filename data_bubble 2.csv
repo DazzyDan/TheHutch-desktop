@@ -1,0 +1,23 @@
+name,value,color,img,html
+Alice,5,#228B22,./images/bluegirl.png,./alicePer.html
+Raymond,7,#556B2F,./images/beardedman.png,./rayPer.html
+Yassine,6,#556B2F,./images/villainM.png,./alicePer.html
+Alexis,6,#228B22,./images/alex.png,./alicePer.html
+Yang,8,#32CD32,./images/witch.png,./alicePer.html
+Dan,6,#32CD32,./images/villain.png,./alicePer.html
+Mike,10,#228B22,./images/boy (1).png,./alicePer.html
+Xiever,2,#228B22,./images/boy.png,./alicePer.html
+Maria,4,#556B2F,./images/sunglassW.png,./alicePer.html
+Jack,8,#556B2F,./images/goldMan.png,./alicePer.html
+Jackson,6,#e9ffdb,./images/magician.png,./alicePer.html
+Jenny,10,#228B22,./images/girl.png,./alicePer.html
+Ketty,5,#556B2F,./images/villain copy.png,./alicePer.html
+Justin,7,#556B2F,./images/man.png,./alicePer.html
+Fang,2,#228B22,./images/moonman.png,./alicePer.html
+Mars,3,#32CD32,./images/supergold.png,./alicePer.html
+Niki,4,#32CD32,./images/villain (1).png,./alicePer.html
+Cardbi,10,#228B22,./images/villain copy 2.png,./alicePer.html
+Tom,9,#228B22,./images/wizard.png,./alicePer.html
+Jerry,3,#556B2F,./images/sunglassW.png,./alicePer.html
+Godzilla,9,#556B2F,./images/supergreen.png,./alicePer.html
+Kong,4,#e9ffdb,./images/superhero (2).png,./alicePer.html
