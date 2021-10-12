@@ -4,80 +4,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+
   	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./style/dashstyle.css">
     <script src="https://d3js.org/d3.v6.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<style media="screen">
+.indiF{
+/* Table / Indicator table */
 
+
+/* Auto Layout */
+
+display: -webkit-inline-box;
+flex-direction: column;
+align-items: center;
+/*first padding:  height distance; sec:  width dis*/
+padding: 12px 16px;
+justify-content: space-evenly;
+position: absolute;
+width: 350px;
+height: 280px;
+left: 1060px;
+top: calc(50% - 305px/2 - 60px);
+
+background: #FFFFFF;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 10px;
+}
+.td1font{
+font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 20px;
+width: 240px;
+
+/* identical to box height, or 143% */
+
+letter-spacing: 0.44px;
+
+  }
+.userF{
+position: absolute;
+width: 350px;
+height: 200px;
+left: 1060px;
+top: 500px;
+
+background: #FFFFFF;
+border: 3px solid #0E3707;
+border-radius: 10px;
+}
+
+</style>
 </head>
+
 
 <body>
 	<i class="bi bi-speedometer dashboard-icon"></i>
 	<p class = "title">Dash Board</p>
 	<!-- PROFILE-->
+  <div class ="id">
 	<div class = "figureF">
 		<div class ="frameF" >
 			<div class = "figureLayout">
 				<img src="./images/george.png" class = "imgL">
 				<i class = "figureN">GEORGE</i>
 				<i class="bi bi-list button " role="button"></i>
-
 			</div>
 		</div>
 	</div>
 	<!-- Bubble Chart -->
-	<div id="my_dataviz" >
+	<div id="my_dataviz">
 
   </div>
-  <!-- UserChart -->
-  <div id = "myInput myModal" class = "userF">
-    <canvas id="UserChart" ></canvas>
-    <!-- <canvas id="PersonChart" ></canvas> -->
-  <!-- <div class="modal-content">
-
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div> -->
-</div>
-
+  <!-- Thumbnail UserChart -->
+  <div class = "userF">
+    <canvas id="UserChart" class="dialog" onmouseover="myFunction()" ></canvas>
+    <div id="dialog_large_chart"></div>
   </div>
+  <!-- Modal UserChart -->
+  <div id = "teammodal" class="modal fade bd-example-modal-lg" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <canvas id = "teamChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 	<!-- Indicator table -->
 	<!-- frame -->
 	<div class = "indiF">
 		<table class="table table-borderless">
       <tr>
 
-        <td class = "td1font"  data-bs-toggle="tooltip" title="All registred users until now">User</td>
+        <td class = "td1font"  data-bs-toggle="tooltip" title="All registred users until now">Total User Number</td>
         <td class = "td2font">220</td>
         <td><i class="bi bi-caret-up-fill upColor"></i></td>
       </tr>
       <tr>
-        <td class = "td1font" data-bs-toggle="tooltip" title="Daily Actual User/Monthly Actual User, this ratio indicates user stickiness">DAU/MAU</td>
+        <td class = "td1font" data-bs-toggle="tooltip" title="Daily Actual User, this ratio indicates user stickiness">Daily Actual User</td>
         <td class = "td2font"> 0.6</td>
-        <td><i class="bi bi-caret-up-fill upColor"></i></td>
+        <td><i class="bi bi-caret-down-fill downColor"></i></td>
       </tr>
+
       <tr>
-        <td class = "td1font" data-bs-toggle="tooltip" title="Daily New Users">DNU</td>
-        <td class = "td2font">12</td>
-        <td><i class="bi bi-caret-up-fill upColor"></i></td>
-      </tr>
-      <tr>
-        <td class = "td1font" data-bs-toggle="tooltip" title="1 A-factor means on average user has 1 interation">A-factor</td>
+        <td class = "td1font" data-bs-toggle="tooltip" title="Average of mood scale in a team">Team Mood Scale</td>
         <td class = "td2font">6</td>
         <td><i class="bi bi-caret-up-fill upColor"></i></td>
       </tr>
-      <tr>
-        <td class = "td1font" data-bs-toggle="tooltip" title="Peak Current User">PCU</td>
-        <td class = "td2font">68</td>
+      <!-- <tr>
+        <td class = "td1font" data-bs-toggle="tooltip" title="Team’s participation level">Team’s participation level</td>
+        <td class = "td2font">0.6</td>
         <td><i class="bi bi-caret-down-fill downColor"></i></td>
-      </tr>
+      </tr> -->
       <tr>
-        <td class = "td1font" data-bs-toggle="tooltip" title="Average Current User">ACU</td>
+        <td class = "td1font" data-bs-toggle="tooltip" title="Team amount of action per day">Team Action Volume</td>
         <td class = "td2font">73</td>
+        <td><i class="bi bi-caret-up-fill upColor"></i></td>
+      </tr>
+       <tr>
+        <td class = "td1font" data-bs-toggle="tooltip" title="Player amount of actions per day">Player Action Volume</td>
+        <td class = "td2font">12</td>
         <td><i class="bi bi-caret-down-fill downColor"></i></td>
       </tr>
-      <tr>
+      <!--<tr>
         <td class = "td1font" data-bs-toggle="tooltip" title="Average Online Time">AOT</td>
         <td class = "td2font">35</td>
         <td><i class="bi bi-caret-down-fill downColor"></i></td>
@@ -86,10 +148,21 @@
         <td class = "td1font"  data-bs-toggle="tooltip" title="Measured by the mood badge">Average Status Point</td>
         <td class = "td2font">1.8</td>
         <td><i class="bi bi-caret-up-fill upColor"></i></td>
-      </tr>
+      </tr> -->
 		</table>
 	</div>
-
+  <div id = "mymodal" class="modal fade bd-example-modal-lg" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <canvas id = "PersonChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </body>
@@ -109,10 +182,10 @@ const labels = [
 const data={
 	labels:labels,
 	datasets:[{
-		label:'Wellbeing',
+		label:'Team mood value',
 		backgroundColor: 'rgba(255, 0, 0, 1)',
 		borderColor: 'rgba(200, 0, 0, 0.8)',
-		data:[-1.5,-1,-0.3,-0.2,0.3,1,1.5,2,2.1,2.3],
+		data:[2,5,0,1,3,4,7,5,6,3],
 		fill:false,
 		tension:0.5
 
@@ -130,7 +203,7 @@ const data={
 const data2={
 	labels:labels,
 	datasets:[{
-		label:'Wellbeing',
+		label:'Team mood value',
 		backgroundColor: 'rgba(255, 0, 0, 1)',
 		borderColor: 'rgba(200, 0, 0, 0.8)',
 		data:[2,2.1,2.3,2.5,1,0.3,0.2,0.3,-1,-1.5],
@@ -164,7 +237,7 @@ const config = {
     plugins: {
       title: {
         display: true,
-        text: 'Users Wellbeing & Participation',
+        text: 'Team mood value & Participation',
         font: {
             family: 'Open Sans',
             size: 16,
@@ -185,14 +258,14 @@ const config = {
         type: 'linear',
         display: true,
         position: 'left',
-        max: 3,
-        min: -3,
+        max: 7,
+        min: 0,
         grid: {
           drawOnChartArea: false, // only want the grid lines for one axis to show up
         },
      title: {
           display: true,
-          text: 'Well-being',
+          text: 'Team mood value',
           font: {
             family: 'Open Sans',
             size: 12,
@@ -242,7 +315,7 @@ const config2 = {
     plugins: {
       title: {
         display: true,
-        text: 'Dazzys Wellbeing & Participation',
+        text: 'Dazzys mood value & Participation',
         font: {
             family: 'Open Sans',
             size: 16,
@@ -263,14 +336,14 @@ const config2 = {
         type: 'linear',
         display: true,
         position: 'left',
-        max: 3,
-        min: -3,
+        max: 7,
+        min: 0,
         grid: {
           drawOnChartArea: false, // only want the grid lines for one axis to show up
         },
      title: {
           display: true,
-          text: 'Well-being',
+          text: 'Mood value',
           font: {
             family: 'Open Sans',
             size: 12,
@@ -313,11 +386,26 @@ const config2 = {
     document.getElementById('UserChart'),
     config
   );
+  // Get the chart that opens the modal
+  function myFunction() {
+    document.getElementById("UserChart").click();
+    var TeamModal = new bootstrap.Modal(document.getElementById('teammodal'), {focus:true});
+        console.log(TeamModal);
+        TeamModal.show()
+        var TeamChart = new Chart(
+          document.getElementById('teamChart'),
+          config
+        );
+  }
 
-</script>
-<script>
+
+
+
+//Bubbles
+
+
 const width = 1000
-const height = 400
+const height = 700
 
 var Size=600
 // append the svg object to the body of the page
@@ -327,7 +415,7 @@ const svg = d3.select("#my_dataviz")
     .attr("height", height);
 
 // Read data
-d3.csv("data_bubble.csv").then( function(data) {
+d3.csv("data_bubble 2.csv").then( function(data) {
 
   // Size scale for countries
   const size = d3.scaleLinear()
@@ -381,6 +469,17 @@ d3.csv("data_bubble.csv").then( function(data) {
       .style("fill", d => d.color)
       .style("fill-opacity", 0.8)
       .attr("stroke", "none")
+      .on("click", function(){
+        //trigger modal
+        var myModal = new bootstrap.Modal(document.getElementById('mymodal'), {focus:true})
+        myModal.show()
+
+        var PerChart = new Chart(
+          document.getElementById('PersonChart'),
+          config2
+        );
+
+})
       .on("mouseover", mouseover) // What to do when hovered
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave)
@@ -486,7 +585,8 @@ d3.csv("data_bubble.csv").then( function(data) {
   const simulation = d3.forceSimulation()
       .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
       .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
-      .force("collide", d3.forceCollide().strength(.2).radius(function(d){ return (size(d.value)+3) }).iterations(1)) // Force that avoids circle overlapping
+      .force("collide", d3.forceCollide().strength(.2).radius(function(d){ return (size(d.value)+3) }).iterations(1))
+       // Force that avoids circle overlapping
 
   // Apply these forces to the nodes and update their positions.
   // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
@@ -511,6 +611,8 @@ d3.csv("data_bubble.csv").then( function(data) {
     d.fy = d.y;
   }
   function dragged(event, d) {
+
+
     d.fx = event.x;
     d.fy = event.y;
   }
@@ -520,8 +622,22 @@ d3.csv("data_bubble.csv").then( function(data) {
     d.fy = null;
   }
 
+      // Move nodes toward cluster focus.
+    function gravity(alpha) {
+      return function (d) {
+        d.y += (d.cy - d.y) * alpha;
+        d.x += (d.cx - d.x) * alpha;
+      };
+    }
 })
 
+
+$(function () {
+        $("canvas.dialog").click(function() {
+            var large_chart = '<canvas id= ' + $(this).attr("id") + '></canvas>';
+            $('#dialog_large_chart').html($(large_chart).animate({ height: '100%', width: '50%' }, 500));
+        });
+    });
 
 
 
