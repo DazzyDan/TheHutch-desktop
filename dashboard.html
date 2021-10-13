@@ -4,10 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-  	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./style/dashstyle.css">
     <script src="https://d3js.org/d3.v6.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -105,22 +107,24 @@ border-radius: 10px;
 
 	<!-- Indicator table -->
 	<!-- frame -->
+
 	<div class = "indiF">
+
 		<table class="table table-borderless">
       <tr>
 
-        <td class = "td1font"  data-bs-toggle="tooltip" title="All registred users until now">Total User Number</td>
+        <td class = "td1font"  data-bs-toggle="tooltip" data-bs-placement="left" title="All registred users until now">Total User Number</td>
         <td class = "td2font">220</td>
         <td><i class="bi bi-caret-up-fill upColor"></i></td>
       </tr>
       <tr>
-        <td class = "td1font" data-bs-toggle="tooltip" title="Daily Actual User, this ratio indicates user stickiness">Daily Actual User</td>
+        <td class = "td1font" data-bs-placement="left" data-bs-toggle="tooltip" title="Daily Actual User, this ratio indicates user stickiness">Daily Actual User</td>
         <td class = "td2font"> 0.6</td>
         <td><i class="bi bi-caret-down-fill downColor"></i></td>
       </tr>
 
       <tr>
-        <td class = "td1font" data-bs-toggle="tooltip" title="Average of mood scale in a team">Team Mood Scale</td>
+        <td class = "td1font" data-bs-placement="left" data-bs-toggle="tooltip" title="Average of mood scale in a team">Team Mood Scale</td>
         <td class = "td2font">6</td>
         <td><i class="bi bi-caret-up-fill upColor"></i></td>
       </tr>
@@ -130,12 +134,12 @@ border-radius: 10px;
         <td><i class="bi bi-caret-down-fill downColor"></i></td>
       </tr> -->
       <tr>
-        <td class = "td1font" data-bs-toggle="tooltip" title="Team amount of action per day">Team Action Volume</td>
+        <td class = "td1font" data-bs-placement="left" data-bs-toggle="tooltip" title="Team amount of action per day">Team Action Volume</td>
         <td class = "td2font">73</td>
         <td><i class="bi bi-caret-up-fill upColor"></i></td>
       </tr>
        <tr>
-        <td class = "td1font" data-bs-toggle="tooltip" title="Player amount of actions per day">Player Action Volume</td>
+        <td class = "td1font" data-bs-placement="left" data-bs-toggle="tooltip" title="Player amount of actions per day">Player Action Volume</td>
         <td class = "td2font">12</td>
         <td><i class="bi bi-caret-down-fill downColor"></i></td>
       </tr>
@@ -167,6 +171,14 @@ border-radius: 10px;
 
 </body>
 <script>
+// set up Tooltip
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+
+// trend chart
 const labels = [
   '11/20',
   '12/20',
@@ -629,6 +641,18 @@ d3.csv("data_bubble 2.csv").then( function(data) {
         d.x += (d.cx - d.x) * alpha;
       };
     }
+    //legend
+    //  legend
+    svg.append("circle").attr("cx",100).attr("cy",100).attr("r", 6).style("fill", "#228B22")
+    svg.append("circle").attr("cx",100).attr("cy",130).attr("r", 6).style("fill", "#32CD32")
+    svg.append("circle").attr("cx",100).attr("cy",160).attr("r", 6).style("fill", "#556B2F")
+    svg.append("circle").attr("cx",100).attr("cy",190).attr("r", 6).style("fill", "#e9ffdb")
+    svg.append("text").attr("x", 120).attr("y", 100).text("AWESOME").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 120).attr("y", 130).text("CALM & ZEN").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 120).attr("y", 160).text("FEELING BAD").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 120).attr("y", 190).text("NOT SUBMIT").style("font-size", "15px").attr("alignment-baseline","middle")
+
+
 })
 
 
